@@ -56,14 +56,14 @@ export default function About() {
       </div>
 
       <div className="relative rounded-full mx-auto md:mx-0">
-        <div className="absolute inset-0 rounded-full bg-primary blur-3xl opacity-50"></div>
+        <div className="absolute inset-0 rounded-full bg-primary blur-3xl opacity-30"></div>
         <Image
-          src={"/images/profile2.jpg"}
+          src={"/images/profile.png"}
           className="rounded-full relative"
           alt="My picture"
           quality={100}
-          width={400}
-          height={400}
+          width={300}
+          height={300}
         />
       </div>
     </section>
