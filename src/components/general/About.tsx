@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function About() {
   return (
-    <section className="flex flex-col-reverse  md:flex-row justify-between mt-32 max-w-screen-lg gap-y-20 md:gap-x-10 mx-auto px-5">
+    <section className="flex flex-col-reverse  md:flex-row justify-between md:mt-32 mt-10 max-w-screen-lg gap-y-20 md:gap-x-10 mx-auto px-5 ">
       <div className="text-center md:text-left">
         <h3 className="text-xl md:text-2xl font-semibold mb-2">
           Hello It's Me
@@ -58,7 +58,7 @@ export default function About() {
       <div className="relative rounded-full mx-auto md:mx-0">
         <div className="absolute inset-0 rounded-full bg-primary blur-3xl opacity-50"></div>
         <Image
-          src={"/images/profile.jpg"}
+          src={"/images/profile2.jpg"}
           className="rounded-full relative"
           alt="My picture"
           quality={100}

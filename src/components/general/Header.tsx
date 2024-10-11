@@ -6,12 +6,12 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="md:mt-5">
+    <header className="md:mt-5 mt-2 ">
       <nav className="flex justify-between font-semibold items-center">
         <div className="rounded p-1 pe-3 border border-primary text-primary">
           <h1 className="text-3xl italic">F T</h1>
         </div>
-        <ul className="hidden md:flex text-xl font-extrabold gap-x-5">
+        <ul className="hidden md:flex text-xl font-extrabold gap-x-5 ">
           <li className="hover:text-primary hover:cursor-pointer transition-all border-b-2 border-primary ">
             About
           </li>
@@ -38,8 +38,8 @@ export default function Header() {
       <ul
         className={`flex flex-col mt-5 space-y-3 text-xl font-extrabold md:hidden text-center w-fit mx-auto transition-all duration-300 ease-in-out transform ${
           isOpen
-            ? "opacity-100 translate-y-0"
-            : "opacity-0 -translate-y-10 pointer-events-none"
+            ? "opacity-100 translate-y-0 "
+            : "opacity-0 -translate-y-10 pointer-events-none hidden"
         }`}
       >
         <li className="hover:text-primary hover:cursor-pointer transition-all border-b-2 border-primary ">
