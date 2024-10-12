@@ -1,6 +1,7 @@
 import About from "@/components/general/About";
 import Arrow from "@/components/general/Arrow";
-import Projects from "@/components/general/Projects";
+import ProjectList from "@/components/general/ProjectList";
+import Projects from "@/components/general/ProjectList";
 import Skills from "@/components/general/Skills";
 
 export default function Home() {
@@ -10,7 +11,7 @@ export default function Home() {
       <Arrow margin={40} />
       <Skills />
       <Arrow margin={40} />
-      <Projects />
+      <ProjectList />
     </>
   );
 }
