@@ -8,7 +8,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import ProjectCard from "./ProjectCard";
 
 export default function ProjectList() {
   return (
@@ -25,13 +25,12 @@ export default function ProjectList() {
               className="pl-2 md:pl-4 basis-full md:basis-1/3"
             >
               <div className="p-1">
-                <Card>
-                  <CardContent className="flex aspect-video md:aspect-[4/3] items-center justify-center p-6">
-                    <span className="text-4xl md:text-6xl font-semibold">
-                      {item}
-                    </span>
-                  </CardContent>
-                </Card>
+                <ProjectCard
+                  title="Furkan Otomotiv"
+                  description="Otomotiv satış sitesi"
+                  imageUrl="/images/socials.png"
+                  projectId="1"
+                />
               </div>
             </CarouselItem>
           ))}

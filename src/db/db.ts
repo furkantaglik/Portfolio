@@ -1,5 +1,9 @@
-import { drizzle } from "drizzle-orm/connect";
-async function main() {
-  const db = await drizzle("neon-http", process.env.DATABASE_URL!);
-}
-main();
+import { config } from "dotenv";
+import { neon } from "@neondatabase/serverless";
+import { drizzle } from "drizzle-orm/neon-http";
+
+config({ path: ".env" });
+
+const sql = neon(process.env.DATABASE_URL!);
+
+export const db = drizzle(sql);

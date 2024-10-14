@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { FileUser, Github, Instagram, Linkedin, X } from "lucide-react";
 import Link from "next/link";
+import { FaMediumM } from "react-icons/fa";
 
 export default function About() {
   return (
@@ -43,6 +44,12 @@ export default function About() {
             className="p-2 border border-primary rounded-full transition-all hover:bg-secondary hover:text-foreground cursor-pointer"
           >
             <X color="cyan" />
+          </Link>
+          <Link
+            href="https://medium.com/@furkantaglik/"
+            className="p-3 border border-primary rounded-full transition-all hover:bg-secondary hover:text-foreground cursor-pointer"
+          >
+            <FaMediumM color="cyan" />
           </Link>
         </ul>
         <a

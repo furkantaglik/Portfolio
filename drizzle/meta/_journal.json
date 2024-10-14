@@ -15,6 +15,48 @@
       "when": 1728599079582,
       "tag": "0001_slow_xorn",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1728814679770,
+      "tag": "0002_salty_vermin",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1728817104056,
+      "tag": "0003_flowery_prism",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1728817146562,
+      "tag": "0004_wandering_master_mold",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1728819822567,
+      "tag": "0005_special_spectrum",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1728820781003,
+      "tag": "0006_milky_leopardon",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1728820982898,
+      "tag": "0007_broad_thunderbolts",
+      "breakpoints": true
     }
   ]
 }

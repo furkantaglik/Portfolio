@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { Menu } from "lucide-react";
+import Link from "next/link";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,7 +10,9 @@ export default function Header() {
     <header className="md:mt-5 mt-2 ">
       <nav className="flex justify-between font-semibold items-center">
         <div className="rounded p-1 pe-3 border border-primary text-primary">
-          <h1 className="text-3xl italic">F T</h1>
+          <Link href="/" className="text-3xl italic">
+            F T
+          </Link>
         </div>
         <ul className="hidden md:flex text-xl font-extrabold gap-x-5 ">
           <li className="hover:text-primary hover:cursor-pointer transition-all border-b-2 border-primary ">
