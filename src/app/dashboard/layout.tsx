@@ -13,24 +13,27 @@ export default function Layout({
 }) {
   const pathname = usePathname();
   return (
-    <section className="flex justify-center items-center md:mt-10 mt-5 gap-x-5 font-semibold border-b w-fit mx-auto p-1">
-      <Link
-        href="/dashboard/projects"
-        className={`underline ${
-          pathname === "/dashboard/projects" ? "text-accent" : ""
-        }  `}
-      >
-        Projects
-      </Link>
-      |
-      <Link
-        href="/dashboard/blogs"
-        className={`underline ${
-          pathname === "/dashboard/blogs" ? "text-accent" : ""
-        }  `}
-      >
-        Blogs
-      </Link>
+    <section className="md:mt-10 mt-5">
+      <nav className="flex justify-center gap-x-5 font-semibold border-b pb-1 w-fit items-center mx-auto">
+        <Link
+          href="/dashboard/projects"
+          className={` ${
+            pathname === "/dashboard/projects" ? "text-accent" : ""
+          }  `}
+        >
+          Projects
+        </Link>
+        |
+        <Link
+          href="/dashboard/blogs"
+          className={` ${
+            pathname === "/dashboard/blogs" ? "text-accent" : ""
+          }  `}
+        >
+          Blogs
+        </Link>
+      </nav>
+      <main>{children}</main>
     </section>
   );
 }

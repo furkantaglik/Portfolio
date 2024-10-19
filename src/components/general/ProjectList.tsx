@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Carousel,
   CarouselContent,
@@ -9,8 +9,19 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import ProjectCard from "./ProjectCard";
+import { getAllProjects } from "@/actions/projectActions";
 
 export default function ProjectList() {
+  const [projects, setProjects] = useState([]);
+
+  useEffect(() => {
+    async function fetchProjects() {
+      const data = await getAllProjects();
+      setProjects(data);
+    }
+    fetchProjects();
+  }, []);
+
   return (
     <section>
       <h1 className="text-3xl font-semibold text-center border-b-2 border-secondary pb-2 mb-8">
@@ -19,17 +30,17 @@ export default function ProjectList() {
 
       <Carousel className="w-full max-w-xs sm:max-w-sm md:max-w-2xl lg:max-w-4xl xl:max-w-6xl mx-auto">
         <CarouselContent className="-ml-2 md:-ml-4">
-          {[1, 2, 3].map((item) => (
+          {projects.map((project) => (
             <CarouselItem
-              key={item}
+              key={project.id}
               className="pl-2 md:pl-4 basis-full md:basis-1/3"
             >
               <div className="p-1">
                 <ProjectCard
-                  title="Furkan Otomotiv"
-                  description="Otomotiv satış sitesi"
-                  imageUrl="/images/socials.png"
-                  projectId="1"
+                  title={project.title}
+                  description={project.description}
+                  imageUrl={project.images[0]}
+                  projectId={project.id}
                 />
               </div>
             </CarouselItem>

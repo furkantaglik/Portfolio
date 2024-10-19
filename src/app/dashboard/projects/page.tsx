@@ -1,5 +1,9 @@
-import React from "react";
+import ProjectsBoard from "@/components/general/ProjectsBoard";
 
-export default function page() {
-  return <div>Projects</div>;
+export default async function ProjectsPage() {
+  return (
+    <section className="mx-auto mt-10">
+      <ProjectsBoard />
+    </section>
+  );
 }

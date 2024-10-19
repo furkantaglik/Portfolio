@@ -9,23 +9,22 @@ import {
 import { Card, CardContent } from "../ui/card";
 import Link from "next/link";
 import { Globe, Github } from "lucide-react";
+import Image from "next/image";
 
-export default function ProjectDetails() {
+export default function ProjectDetails({ projectDetail }) {
   return (
     <>
       <section className="grid grid-cols-1 md:grid-cols-12 mx-auto justify-center items-center gap-y-10 gap-x-10">
         <Carousel className="w-full mx-auto md:col-span-4">
           <CarouselContent>
-            {Array.from({ length: 5 }).map((_, index) => (
+            {projectDetail.images.map((imageUrl, index) => (
               <CarouselItem key={index}>
                 <div className="p-1">
-                  <Card>
-                    <CardContent className="flex aspect-square items-center justify-center p-6">
-                      <span className="text-4xl font-semibold">
-                        {index + 1}
-                      </span>
-                    </CardContent>
-                  </Card>
+                  <img
+                    className="w-full h-[400px]"
+                    src={imageUrl}
+                    alt={projectDetail.title}
+                  />
                 </div>
               </CarouselItem>
             ))}
@@ -37,30 +36,12 @@ export default function ProjectDetails() {
         </Carousel>
 
         <div className="border border-dashed w-full md:col-span-8 p-5">
-          <h1 className="text-2xl font-semibold">Furkan Otomotiv</h1>
-          <p className="text-sm mt-2">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia
-            corrupti, omnis itaque aut inventore eos labore dolorum, vero
-            corporis temporibus blanditiis eaque nulla assumenda nam aliquam
-            impedit accusantium quod in! Expedita quaerat assumenda veniam
-            eveniet facilis voluptates recusandae saepe velit fugiat dolore.
-            Beatae optio ipsam error velit. Nobis consectetur facilis minima
-            eos, ex molestias porro deleniti, quod laboriosam culpa
-            voluptatibus. Mollitia at, cumque minima praesentium, perspiciatis
-            riatur? Perferendis nam voluptates velit!
-          </p>
+          <h1 className="text-2xl font-semibold">{projectDetail.title}</h1>
+          <p className="text-sm mt-2">{projectDetail.description}</p>
 
           <h1 className="mt-10 font-semibold text-lg">Tech</h1>
           <div className="flex flex-wrap gap-2 mt-2">
-            {[
-              "TypeScript",
-              "React",
-              "Next.js",
-              "TailwindCSS",
-              "Node.js",
-              "MongoDB",
-              "Git",
-            ].map((tech) => (
+            {projectDetail.techs.map((tech) => (
               <span key={tech} className="p-1 bg-secondary text-xs rounded">
                 {tech}
               </span>
@@ -71,13 +52,13 @@ export default function ProjectDetails() {
             <h1 className="font-semibold text-lg">Links</h1>
             <div className="flex flex-wrap gap-x-5 mt-2">
               <Link
-                href="https://github.com/furkantaglik/furkanoto"
+                href={projectDetail.sourceCodeUrl}
                 className="text-sm bg-accent/70 hover:bg-accent text-background font-semibold p-1 rounded flex w-fit items-center gap-x-2"
               >
                 <Github size={20} /> Source Code
               </Link>
               <Link
-                href="https://github.com/furkantaglik/furkanoto"
+                href={projectDetail.demoUrl}
                 className="text-sm bg-accent/70 hover:bg-accent text-background font-semibold p-1 rounded flex w-fit items-center gap-x-2"
               >
                 <Globe size={20} /> Demo

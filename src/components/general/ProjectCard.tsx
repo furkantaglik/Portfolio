@@ -30,7 +30,7 @@ export default function ProjectCard({
         <CardDescription>{description}</CardDescription>
       </CardHeader>
       <CardContent>
-        <Image
+        <img
           src={imageUrl}
           width={300}
           height={100}
