@@ -2,15 +2,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-export default function Layout({
-  children,
-  blogs,
-  projects,
-}: {
-  children: React.ReactNode;
-  projects: React.ReactNode;
-  blogs: React.ReactNode;
-}) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   return (
     <section className="md:mt-10 mt-5">
