@@ -1,9 +1,35 @@
 "use client";
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../../../firebase.config";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
+  const [pending, setPending] = useState(true);
   const pathname = usePathname();
+  const router = useRouter();
+  const desiredUserId = process.env.NEXT_PUBLIC_ADMIN_ID;
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        if (user.uid === desiredUserId) {
+          setPending(false);
+        } else {
+          router.push("/");
+        }
+      } else {
+        router.push("/");
+      }
+    });
+
+    return () => unsubscribe();
+  }, [router, desiredUserId]);
+
+  if (pending) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <section className="md:mt-10 mt-5">
