@@ -17,13 +17,13 @@ export default function ProjectDetails({ projectDetail }) {
         <CarouselContent>
           {projectDetail.images.map((imageUrl, index) => (
             <CarouselItem key={index}>
-              <div className="p-1">
+              <div className="p-1 ">
                 <Image
-                  className="w-full h-[400px] object-cover"
+                  className="w-full object-fill h-[300px]"
                   src={imageUrl}
                   alt={projectDetail.title}
-                  width={800}
-                  height={400}
+                  width={500}
+                  height={300}
                   priority
                 />
               </div>

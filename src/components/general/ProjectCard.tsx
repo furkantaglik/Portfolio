@@ -32,7 +32,7 @@ export default function ProjectCard({
         <h1 className="text-2xl font-semibold" id={`card-${projectId}`}>
           {title}
         </h1>
-        <CardDescription>{description}</CardDescription>
+        <CardDescription className="h-[50px]">{description}</CardDescription>
       </CardHeader>
       <CardContent>
         <Image
