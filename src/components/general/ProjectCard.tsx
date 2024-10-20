@@ -24,24 +24,31 @@ export default function ProjectCard({
   projectId,
 }: ProjectCardProps) {
   return (
-    <Card className="border w-full mx-auto">
+    <Card
+      className="border w-full mx-auto"
+      aria-labelledby={`card-${projectId}`}
+    >
       <CardHeader>
-        <CardTitle>{title}</CardTitle>
+        <h1 className="text-2xl font-semibold" id={`card-${projectId}`}>
+          {title}
+        </h1>
         <CardDescription>{description}</CardDescription>
       </CardHeader>
       <CardContent>
-        <img
+        <Image
           src={imageUrl}
           width={300}
           height={100}
           alt={title}
           className="w-full h-auto"
+          priority
         />
       </CardContent>
       <CardFooter>
         <Link
           className="outline-dashed italic outline-secondary hover:bg-primary transition-all bg-secondary rounded w-full text-center font-semibold text-lg py-2"
           href={`/project/${projectId}`}
+          aria-label={`Detayları görüntüle: ${title}`}
         >
           Details
         </Link>

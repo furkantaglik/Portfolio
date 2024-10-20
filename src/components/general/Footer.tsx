@@ -1,5 +1,43 @@
+import Link from "next/link";
 import React from "react";
 
 export default function Footer() {
-  return <footer className="mt-10"></footer>;
+  return (
+    <footer className="mt-10 border-t-2 border-secondary pt-5">
+      <div className="max-w-screen-xl mx-auto text-center">
+        <p className="text-gray-300">
+          © {new Date().getFullYear()} Furkan Tağlık. Tüm hakları saklıdır.
+        </p>
+        <div className="flex justify-center mt-2 gap-x-5 text-gray-300">
+          <Link
+            href="https://instagram.com/furkantaglik"
+            className=" hover:text-primary"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Furkan Tağlık Instagram profili"
+          >
+            Instagram
+          </Link>
+          <Link
+            href="https://linkedin.com/in/furkantaglik"
+            className=" hover:text-primary"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Furkan Tağlık LinkedIn profili"
+          >
+            LinkedIn
+          </Link>
+          <Link
+            href="https://github.com/furkantaglik"
+            className=" hover:text-primary"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Furkan Tağlık GitHub profili"
+          >
+            GitHub
+          </Link>
+        </div>
+      </div>
+    </footer>
+  );
 }

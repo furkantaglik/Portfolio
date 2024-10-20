@@ -6,7 +6,14 @@ import { FaMediumM } from "react-icons/fa";
 
 export default function About() {
   return (
-    <section className="flex flex-col-reverse  md:flex-row justify-between md:mt-32 mt-10 max-w-screen-lg gap-y-20 md:gap-x-10 mx-auto px-5 ">
+    <section
+      id="about"
+      className="flex flex-col-reverse md:flex-row justify-between md:mt-32 mt-10 max-w-screen-lg gap-y-20 md:gap-x-10 mx-auto px-5"
+      aria-labelledby="about-section"
+    >
+      <h2 id="about-section" className="sr-only">
+        About Me Section
+      </h2>
       <div className="text-center md:text-left">
         <h3 className="text-xl md:text-2xl font-semibold mb-2">
           Hello It's Me
@@ -14,48 +21,55 @@ export default function About() {
         <h1 className="text-3xl md:text-4xl font-extrabold">Furkan Tağlık</h1>
         <h2 className="text-xl md:text-2xl font-semibold mb-5">
           And I'm a{" "}
-          <span className="text-primary ">Fullstack Web Developer</span>
+          <span className="text-primary">Fullstack Web Developer</span>
         </h2>
         <p>
-          Hey, I'm Furkan Tağlık. Here, you can check out what I'm working on. I
-          try my best to create things with ❤
+          Hey, I'm Furkan Tağlık, a Fullstack Web Developer. You can explore my
+          personal website to see the projects I’m working on. I try my best to
+          create things with ❤.
         </p>
-        <ul className="flex justify-center md:justify-start gap-x-5 mt-10">
+        <div className="flex justify-center md:justify-start gap-x-5 mt-10">
           <Link
             href="https://instagram.com/furkantaglik"
+            aria-label="Instagram Profile"
             className="p-2 border border-primary rounded-full transition-all hover:bg-secondary hover:text-foreground cursor-pointer"
           >
             <Instagram color="cyan" />
           </Link>
           <Link
             href="https://linkedin.com/in/furkantaglik/"
+            aria-label="LinkedIn Profile"
             className="p-2 border border-primary rounded-full transition-all hover:bg-secondary hover:text-foreground cursor-pointer"
           >
             <Linkedin color="cyan" />
           </Link>
           <Link
             href="https://github.com/furkantaglik/"
+            aria-label="GitHub Profile"
             className="p-2 border border-primary rounded-full transition-all hover:bg-secondary hover:text-foreground cursor-pointer"
           >
             <Github color="cyan" />
           </Link>
           <Link
             href="https://x.com/furkantaglik/"
+            aria-label="Twitter (X) Profile"
             className="p-2 border border-primary rounded-full transition-all hover:bg-secondary hover:text-foreground cursor-pointer"
           >
             <X color="cyan" />
           </Link>
           <Link
             href="https://medium.com/@furkantaglik/"
+            aria-label="Medium Profile"
             className="p-3 border border-primary rounded-full transition-all hover:bg-secondary hover:text-foreground cursor-pointer"
           >
             <FaMediumM color="cyan" />
           </Link>
-        </ul>
+        </div>
         <a
           href="/files/furkantaglikCV.pdf"
           download="furkantaglikCV.pdf"
           className="rounded mt-5 font-semibold inline-flex items-center bg-primary text-white p-3"
+          aria-label="Download Furkan Tağlık CV"
         >
           Download CV
           <FileUser className="ms-2" size={20} />
@@ -67,7 +81,7 @@ export default function About() {
         <Image
           src={"/images/profile.png"}
           className="rounded-full relative"
-          alt="My picture"
+          alt="Furkan Tağlık profile picture"
           quality={100}
           width={300}
           height={300}

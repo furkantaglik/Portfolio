@@ -80,54 +80,25 @@ export default function ProjectForm({
         onSubmit={handleSubmit}
         className="grid md:grid-cols-2 gap-x-10 gap-y-5"
       >
-        <div>
-          <Label className="text-lg font-semibold">Title</Label>
-          <Input
-            value={formData.title}
-            onChange={(e) =>
-              setFormData({ ...formData, title: e.target.value })
-            }
-            required
-          />
-        </div>
-        <div>
-          <Label className="text-lg font-semibold">Description</Label>
-          <Input
-            value={formData.description}
-            onChange={(e) =>
-              setFormData({ ...formData, description: e.target.value })
-            }
-            required
-          />
-        </div>
-        <div>
-          <Label className="text-lg font-semibold">Techs</Label>
-          <Input
-            value={formData.techs}
-            onChange={(e) =>
-              setFormData({ ...formData, techs: e.target.value })
-            }
-            required
-          />
-        </div>
-        <div>
-          <Label className="text-lg font-semibold">Source Code URL</Label>
-          <Input
-            value={formData.sourceCodeUrl}
-            onChange={(e) =>
-              setFormData({ ...formData, sourceCodeUrl: e.target.value })
-            }
-          />
-        </div>
-        <div>
-          <Label className="text-lg font-semibold">Demo URL</Label>
-          <Input
-            value={formData.demoUrl}
-            onChange={(e) =>
-              setFormData({ ...formData, demoUrl: e.target.value })
-            }
-          />
-        </div>
+        {[
+          { label: "Title", key: "title", required: true },
+          { label: "Description", key: "description", required: true },
+          { label: "Techs", key: "techs", required: true },
+          { label: "Source Code URL", key: "sourceCodeUrl", required: false },
+          { label: "Demo URL", key: "demoUrl", required: false },
+        ].map(({ label, key, required }) => (
+          <div key={key}>
+            <Label className="text-lg font-semibold">{label}</Label>
+            <Input
+              value={formData[key]}
+              onChange={(e) =>
+                setFormData({ ...formData, [key]: e.target.value })
+              }
+              required={required}
+              type={key.includes("URL") ? "url" : "text"}
+            />
+          </div>
+        ))}
         <div>
           <Label className="text-lg font-semibold">Images</Label>
           <Input
@@ -135,7 +106,11 @@ export default function ProjectForm({
             multiple
             accept="image/*"
             onChange={(e) => setImages(Array.from(e.target.files || []))}
+            aria-describedby="imageUploadHelp"
           />
+          <span id="imageUploadHelp" className="text-sm text-gray-500">
+            You can upload multiple images.
+          </span>
         </div>
         <div className="my-4">
           <h3 className="text-lg font-semibold">Existing Images</h3>
@@ -158,7 +133,11 @@ export default function ProjectForm({
           {project ? "Update Project" : "Add Project"}
         </Button>
         {project && (
-          <Button className="font-semibold bg-transparent hover:bg-transparent hover:text-secondary">
+          <Button
+            type="button"
+            className="font-semibold bg-transparent hover:bg-transparent hover:text-secondary"
+            onClick={() => setEditingProject(null)}
+          >
             {"<"} Back To Add
           </Button>
         )}
