@@ -25,7 +25,7 @@ export default function ProjectCard({
 }: ProjectCardProps) {
   return (
     <Card
-      className="border w-full mx-auto"
+      className="border w-full mx-auto bg-background"
       aria-labelledby={`card-${projectId}`}
     >
       <CardHeader>
@@ -38,15 +38,15 @@ export default function ProjectCard({
         <Image
           src={imageUrl}
           width={300}
-          height={100}
+          height={200}
           alt={title}
-          className="w-full h-auto"
+          className="w-full h-[200px]"
           priority
         />
       </CardContent>
       <CardFooter>
         <Link
-          className="outline-dashed italic outline-secondary hover:bg-primary transition-all bg-secondary rounded w-full text-center font-semibold text-lg py-2"
+          className="outline-dashed italic outline-secondary hover:bg-secondary transition-all bg-secondary/70 rounded w-full text-center font-semibold text-lg py-2"
           href={`/project/${projectId}`}
           aria-label={`Detayları görüntüle: ${title}`}
         >

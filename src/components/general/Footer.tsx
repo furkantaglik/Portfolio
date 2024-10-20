@@ -3,10 +3,10 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <footer className="mt-10 border-t-2 border-secondary pt-5">
+    <footer className="mt-10 border-t-2 border-secondary py-10">
       <div className="max-w-screen-xl mx-auto text-center">
         <p className="text-gray-300">
-          © {new Date().getFullYear()} Furkan Tağlık. Tüm hakları saklıdır.
+          © {new Date().getFullYear()} Furkan Tağlık. All Rights Reserved.
         </p>
         <div className="flex justify-center mt-2 gap-x-5 text-gray-300">
           <Link

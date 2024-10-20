@@ -4,6 +4,8 @@ import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { addProject, updateProject } from "@/actions/projectActions";
 import { deleteImage } from "@/lib/firebase";
+import Image from "next/image";
+import { Trash2 } from "lucide-react";
 
 export default function ProjectForm({
   project,
@@ -59,16 +61,19 @@ export default function ProjectForm({
     images.forEach((file) => form.append("images", file));
 
     if (project) {
+      if (images.length === 0) {
+        existingImages.forEach((url) => form.append("existingImages", url));
+      }
       await updateProject(project.id, form);
-      setEditingProject(null);
     } else {
       await addProject(form);
     }
+    setEditingProject(null);
   };
 
-  const handleImageDelete = (imageUrl: string) => {
+  const handleImageDelete = async (imageUrl: string) => {
     setExistingImages((prev) => prev.filter((img) => img !== imageUrl));
-    deleteImage(imageUrl);
+    await deleteImage(imageUrl);
   };
 
   return (
@@ -112,35 +117,47 @@ export default function ProjectForm({
             You can upload multiple images.
           </span>
         </div>
-        <div className="my-4">
-          <h3 className="text-lg font-semibold">Existing Images</h3>
-          <ul>
+        <div className="my-4 col-span-2">
+          <h3 className="text-lg font-semibold text-center mb-5">
+            Existing Images
+          </h3>
+          <ul className="flex justify-between items-center max-w-2xl mx-auto gap-x-10">
             {existingImages.map((url, index) => (
-              <li key={index} className="flex justify-between items-center">
-                <span>{url}</span>
+              <li key={index}>
+                <Image
+                  className="w-[200px] h-[200px]"
+                  src={url}
+                  alt="existing images"
+                  width={200}
+                  height={200}
+                  quality={50}
+                />
                 <Button
+                  className="mx-auto flex rounded w-full"
                   variant="destructive"
                   size="sm"
                   onClick={() => handleImageDelete(url)}
                 >
-                  Delete
+                  <Trash2 />
                 </Button>
               </li>
             ))}
           </ul>
         </div>
-        <Button className="font-semibold bg-secondary hover:bg-secondary">
-          {project ? "Update Project" : "Add Project"}
-        </Button>
-        {project && (
-          <Button
-            type="button"
-            className="font-semibold bg-transparent hover:bg-transparent hover:text-secondary"
-            onClick={() => setEditingProject(null)}
-          >
-            {"<"} Back To Add
+        <div>
+          <Button className="font-semibold bg-secondary hover:bg-secondary">
+            {project ? "Update Project" : "Add Project"}
           </Button>
-        )}
+          {project && (
+            <Button
+              type="button"
+              className="font-semibold bg-transparent hover:bg-transparent hover:text-secondary"
+              onClick={() => setEditingProject(null)}
+            >
+              {"<"} Back To Add
+            </Button>
+          )}
+        </div>
       </form>
     </section>
   );

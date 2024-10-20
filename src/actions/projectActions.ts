@@ -3,6 +3,7 @@ import { db } from "@/db/db";
 import { projectsTable } from "@/db/schema";
 import { eq } from "drizzle-orm";
 import { uploadImage, deleteImage } from "@/lib/firebase";
+import { revalidatePath } from "next/cache";
 
 export async function addProject(data: FormData) {
   const imageFiles = data.getAll("images") as File[];
@@ -26,6 +27,7 @@ export async function addProject(data: FormData) {
   console.log(newProject);
 
   await db.insert(projectsTable).values(newProject);
+  revalidatePath("/project/[id]", "page");
 }
 
 export async function updateProject(id: string, data: FormData) {
@@ -58,6 +60,7 @@ export async function updateProject(id: string, data: FormData) {
     .update(projectsTable)
     .set(updatedProject)
     .where(eq(projectsTable.id, Number(id)));
+  revalidatePath("/project/[id]", "page");
 }
 
 export async function deleteProject(id: string) {
@@ -74,6 +77,7 @@ export async function deleteProject(id: string) {
 
     await db.delete(projectsTable).where(eq(projectsTable.id, Number(id)));
   }
+  revalidatePath("/project/[id]", "page");
 }
 
 export async function getAllProjects() {
@@ -94,6 +98,5 @@ export async function GetByProjectId(id: string) {
   if (project.length === 0) {
     throw new Error("Project not found");
   }
-
   return project[0];
 }
