@@ -1,10 +1,4 @@
-import {
-  customType,
-  pgTable,
-  serial,
-  text,
-  varchar,
-} from "drizzle-orm/pg-core";
+import { pgTable, serial, text, varchar } from "drizzle-orm/pg-core";
 
 export const usersTable = pgTable("users", {
   id: serial("id").primaryKey(),
