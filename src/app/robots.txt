@@ -1,5 +1,6 @@
 User-Agent: *
 Allow: /
 Disallow: /dashboard/
+Disallow: /login/
 
-Sitemap: https://acme.com/sitemap.xml
+Sitemap: https://furkantaglik.online/sitemap.xml
