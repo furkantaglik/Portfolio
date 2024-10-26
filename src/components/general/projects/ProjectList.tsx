@@ -1,6 +1,4 @@
 "use client";
-
-import React, { useEffect, useState } from "react";
 import {
   Carousel,
   CarouselContent,
@@ -9,20 +7,13 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import ProjectCard from "./ProjectCard";
-import { getAllProjects } from "@/actions/projectActions";
+import { Project } from "@/types";
 
-export default function ProjectList() {
-  const [projects, setProjects] = useState([]);
+type ProjectListProps = {
+  projects: Project[];
+};
 
-  useEffect(() => {
-    const fetchProjects = async () => {
-      const data = await getAllProjects();
-      setProjects(data);
-    };
-
-    fetchProjects();
-  }, []);
-
+export default function ProjectList({ projects }: ProjectListProps) {
   return (
     <section id="projects">
       <h1 className="text-3xl font-semibold text-center border-b-2 border-secondary pb-2 mb-8 ">
@@ -38,12 +29,7 @@ export default function ProjectList() {
                 className="pl-2 md:pl-4 basis-full md:basis-1/3"
               >
                 <div className="p-1">
-                  <ProjectCard
-                    title={project.title}
-                    description={project.description}
-                    imageUrl={project.images[0]}
-                    projectId={project.id}
-                  />
+                  <ProjectCard project={project} />
                 </div>
               </CarouselItem>
             ))

@@ -14,6 +14,7 @@ export const certificatesTable = pgTable("certificates", {
   id: serial("id").primaryKey(),
   title: varchar("title", { length: 200 }).notNull(),
   company: varchar("company", { length: 100 }).notNull(),
+  date: varchar("date", { length: 100 }).notNull(),
   source: varchar("source", { length: 100 }).notNull(),
 });
 
@@ -24,7 +25,7 @@ export const educationsTable = pgTable("educations", {
   year: varchar("year", { length: 100 }).notNull(),
 });
 
-export const experiencestable = pgTable("experience", {
+export const experiencesTable = pgTable("experiences", {
   id: serial("id").primaryKey(),
   company: varchar("company", { length: 200 }).notNull(),
   role: varchar("role", { length: 100 }).notNull(),

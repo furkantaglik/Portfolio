@@ -1,4 +1,4 @@
-import ProjectsBoard from "@/components/general/ProjectsBoard";
+import ProjectsBoard from "@/components/general/projects/ProjectsBoard";
 
 export default async function ProjectsPage() {
   return (

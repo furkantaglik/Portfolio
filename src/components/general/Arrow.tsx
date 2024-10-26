@@ -1,7 +1,6 @@
 import { ChevronsDown } from "lucide-react";
-import React from "react";
 
-export default function Arrow({ margin = 40 }: { margin?: number }) {
+export default function Arrow() {
   return (
     <div className={`flex justify-center items-center my-40`}>
       <ChevronsDown

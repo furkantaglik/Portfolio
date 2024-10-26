@@ -1,10 +1,10 @@
 "use client";
 
-import { Button } from "../ui/button";
+import { Button } from "@/components/ui/button";
 import { Pencil, Trash2 } from "lucide-react";
 import { useEffect, useState } from "react";
 import ProjectForm from "./ProjectForm";
-import { deleteProject, getAllProjects } from "@/actions/projectActions";
+import { deleteProject, getAllProjects } from "@/actions/projectsActions";
 
 export default function ProjectsBoard() {
   const [projects, setProjects] = useState([]);

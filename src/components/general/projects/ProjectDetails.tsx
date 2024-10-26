@@ -1,11 +1,10 @@
-import React from "react";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "../ui/carousel";
+} from "@/components/ui/carousel";
 import Link from "next/link";
 import { Globe, Github } from "lucide-react";
 import Image from "next/image";

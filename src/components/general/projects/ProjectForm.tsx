@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import { Label } from "../ui/label";
-import { Input } from "../ui/input";
-import { Button } from "../ui/button";
-import { addProject, updateProject } from "@/actions/projectActions";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { addProject, updateProject } from "@/actions/projectsActions";
 import { deleteImage } from "@/lib/firebase";
 import Image from "next/image";
 import { Trash2 } from "lucide-react";

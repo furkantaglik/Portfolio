@@ -1,4 +1,4 @@
-import { getAllProjects } from "@/actions/projectActions";
+import { getAllProjects } from "@/actions/projectsActions";
 import { MetadataRoute } from "next";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

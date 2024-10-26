@@ -1,6 +1,5 @@
-import { GetByProjectId } from "@/actions/projectActions";
-import ProjectDetails from "@/components/general/ProjectDetails";
-import React from "react";
+import { GetByProjectId } from "@/actions/projectsActions";
+import ProjectDetails from "@/components/general/projects/ProjectDetails";
 
 export default async function Page({ params }: { params: { id: string } }) {
   const projectDetail = await GetByProjectId(params.id);

@@ -1,4 +1,3 @@
-import React from "react";
 import Image from "next/image";
 import { FileUser, Github, Instagram, Linkedin, X } from "lucide-react";
 import Link from "next/link";
