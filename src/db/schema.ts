@@ -15,6 +15,7 @@ export const certificatesTable = pgTable("certificates", {
   title: varchar("title", { length: 200 }).notNull(),
   company: varchar("company", { length: 100 }).notNull(),
   date: varchar("date", { length: 100 }).notNull(),
+  imageUrl: varchar().notNull(),
   source: varchar("source", { length: 100 }).notNull(),
 });
 
@@ -22,11 +23,14 @@ export const educationsTable = pgTable("educations", {
   id: serial("id").primaryKey(),
   school: varchar("school", { length: 200 }).notNull(),
   section: varchar("section", { length: 200 }).notNull(),
+  imageUrl: varchar().notNull(),
   year: varchar("year", { length: 100 }).notNull(),
 });
 
 export const experiencesTable = pgTable("experiences", {
   id: serial("id").primaryKey(),
   company: varchar("company", { length: 200 }).notNull(),
+  imageUrl: varchar().notNull(),
+  date: varchar("date", { length: 100 }),
   role: varchar("role", { length: 100 }).notNull(),
 });

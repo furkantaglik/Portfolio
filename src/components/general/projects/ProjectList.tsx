@@ -40,8 +40,8 @@ export default function ProjectList({ projects }: ProjectListProps) {
           )}
         </CarouselContent>
         <div className="block">
-          <CarouselPrevious className="absolute -left-0 xs:-left-10 top-1/2 transform -translate-y-1/2" />
-          <CarouselNext className="absolute -right-0 xs:-right-10 top-1/2 transform -translate-y-1/2" />
+          <CarouselPrevious className="absolute -left-0 xs:-left-10 top-1/2 transform -translate-y-1/2 hover:text-background" />
+          <CarouselNext className="absolute -right-0 xs:-right-10 top-1/2 transform -translate-y-1/2 hover:text-background" />
         </div>
       </Carousel>
     </section>

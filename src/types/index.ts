@@ -1,4 +1,3 @@
-// types/index.ts
 export type Project = {
   id: number;
   title: string;
@@ -13,6 +12,7 @@ export type Education = {
   id: number;
   school: string;
   section: string;
+  imageUrl: string;
   year: string;
 };
 
@@ -21,11 +21,14 @@ export type Certificate = {
   title: string;
   company: string;
   date: string;
+  imageUrl: string;
   source: string;
 };
 
 export type Experience = {
   id: number;
   company: string;
+  imageUrl: string;
+  date: string;
   role: string;
 };

@@ -24,7 +24,6 @@ export async function addProject(data: FormData) {
     demoUrl: data.get("demoUrl") as string,
     images: imageUrls,
   };
-  console.log(newProject);
 
   await db.insert(projectsTable).values(newProject);
   revalidatePath("/project/[id]", "page");

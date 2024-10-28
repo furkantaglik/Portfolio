@@ -23,7 +23,9 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         <h1 className="text-2xl font-semibold" id={`card-${project.id}`}>
           {project.title}
         </h1>
-        <CardDescription className="h-[50px]">{project.title}</CardDescription>
+        <CardDescription className="h-[50px]">
+          {project.description}
+        </CardDescription>
       </CardHeader>
       <CardContent>
         <Image

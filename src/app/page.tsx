@@ -10,6 +10,7 @@ import { getAllProjects } from "@/actions/projectsActions";
 import { getAllEducation } from "@/actions/educationsActions";
 import { getAllCertificate } from "@/actions/certificatesActions";
 import { getAllExperience } from "@/actions/experiencesActions";
+import { Suspense } from "react";
 
 export default async function Home() {
   const [projects, educations, certificates, experiences] = await Promise.all([
@@ -18,19 +19,29 @@ export default async function Home() {
     getAllCertificate(),
     getAllExperience(),
   ]);
+
   return (
     <>
       <About />
       <Arrow />
       <Skills />
       <Arrow />
-      <ProjectList projects={projects} />
+
+      <Suspense fallback={<div>Loading projects...</div>}>
+        <ProjectList projects={projects} />
+      </Suspense>
       <Arrow />
-      <EducationsList educations={educations} />
+      <Suspense fallback={<div>Loading experiences...</div>}>
+        <ExperiencesList experiences={experiences} />
+      </Suspense>
       <Arrow />
-      <ExperiencesList experiences={experiences} />
+      <Suspense fallback={<div>Loading certificates...</div>}>
+        <CertificatesList certificates={certificates} />
+      </Suspense>
       <Arrow />
-      <CertificatesList certificates={certificates} />
+      <Suspense fallback={<div>Loading education...</div>}>
+        <EducationsList educations={educations} />
+      </Suspense>
       <Arrow />
       <Contact />
     </>
