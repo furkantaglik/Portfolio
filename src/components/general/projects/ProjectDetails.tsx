@@ -54,6 +54,7 @@ export default function ProjectDetails({ projectDetail }) {
             <Link
               href={projectDetail.sourceCodeUrl}
               className="text-sm bg-accent/70 hover:bg-accent text-background font-semibold p-1 rounded flex w-fit items-center gap-x-2"
+              target="_blank"
               aria-label={`Source code for ${projectDetail.title}`}
             >
               <Github size={20} /> Source Code
@@ -61,6 +62,7 @@ export default function ProjectDetails({ projectDetail }) {
             <Link
               href={projectDetail.demoUrl}
               className="text-sm bg-accent/70 hover:bg-accent text-background font-semibold p-1 rounded flex w-fit items-center gap-x-2"
+              target="_blank"
               aria-label={`Demo for ${projectDetail.title}`}
             >
               <Globe size={20} /> Demo

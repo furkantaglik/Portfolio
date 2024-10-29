@@ -31,6 +31,7 @@ export default function About() {
           <Link
             href="https://instagram.com/furkantaglik"
             aria-label="Instagram Profile"
+            target="_blank"
             className="p-2 border border-primary rounded-full transition-all hover:bg-secondary hover:text-foreground cursor-pointer"
           >
             <Instagram color="cyan" />
@@ -38,6 +39,7 @@ export default function About() {
           <Link
             href="https://linkedin.com/in/furkantaglik/"
             aria-label="LinkedIn Profile"
+            target="_blank"
             className="p-2 border border-primary rounded-full transition-all hover:bg-secondary hover:text-foreground cursor-pointer"
           >
             <Linkedin color="cyan" />
@@ -45,6 +47,7 @@ export default function About() {
           <Link
             href="https://github.com/furkantaglik/"
             aria-label="GitHub Profile"
+            target="_blank"
             className="p-2 border border-primary rounded-full transition-all hover:bg-secondary hover:text-foreground cursor-pointer"
           >
             <Github color="cyan" />
@@ -52,6 +55,7 @@ export default function About() {
           <Link
             href="https://x.com/furkantaglik/"
             aria-label="Twitter (X) Profile"
+            target="_blank"
             className="p-2 border border-primary rounded-full transition-all hover:bg-secondary hover:text-foreground cursor-pointer"
           >
             <X color="cyan" />
@@ -59,20 +63,22 @@ export default function About() {
           <Link
             href="https://medium.com/@furkantaglik/"
             aria-label="Medium Profile"
+            target="_blank"
             className="p-3 border border-primary rounded-full transition-all hover:bg-secondary hover:text-foreground cursor-pointer"
           >
             <FaMediumM color="cyan" />
           </Link>
         </div>
-        <a
+        <Link
           href="/files/furkantaglikCV.pdf"
           download="furkantaglikCV.pdf"
+          target="_blank"
           className="rounded mt-5 font-semibold inline-flex items-center bg-primary text-white p-3"
           aria-label="Download Furkan Tağlık CV"
         >
           Download CV
           <FileUser className="ms-2" size={20} />
-        </a>
+        </Link>
       </div>
 
       <div className="relative rounded-full mx-auto md:mx-0">
