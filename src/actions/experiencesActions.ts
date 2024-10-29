@@ -7,26 +7,26 @@ import { eq } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 
 export async function addExperience(experience: Experience) {
-  revalidatePath("/");
   try {
     await db.insert(experiencesTable).values(experience);
+    revalidatePath("/");
   } catch (error) {}
 }
 
 export async function updateExperience(experience: Experience) {
-  revalidatePath("/");
   try {
     await db
       .update(experiencesTable)
       .set(experience)
       .where(eq(experiencesTable, experience.id));
+    revalidatePath("/");
   } catch (error) {}
 }
 
 export async function deleteExperience(id: number) {
-  revalidatePath("/");
   try {
     await db.delete(experiencesTable).where(eq(experiencesTable.id, id));
+    revalidatePath("/");
   } catch (error) {}
 }
 
