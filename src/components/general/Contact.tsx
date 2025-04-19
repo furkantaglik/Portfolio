@@ -63,10 +63,11 @@ export default function Contact() {
         </div>
         <button
           type="submit"
-          className="mt-5 bg-primary text-white p-3 rounded"
+          className="mt-5 bg-primary text-white p-3 rounded font-semibold "
+
           aria-label="Send message"
         >
-          Send Message
+          Available soon  
         </button>
       </form>
     </section>

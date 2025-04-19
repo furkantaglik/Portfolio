@@ -35,6 +35,7 @@ export async function updateProject(id: string, data: FormData) {
   try {
     const imageFiles = data.getAll("images") as File[];
     const existingImages = data.get("existingImages") as FormDataEntryValue;
+    
 
     const imageUrls: string[] = Array.isArray(existingImages)
       ? existingImages
@@ -44,7 +45,7 @@ export async function updateProject(id: string, data: FormData) {
 
     for (const file of imageFiles) {
       if (file instanceof File) {
-        const imageUrl = await uploadImage(file);
+        const imageUrl = await uploadImage(file);  
         imageUrls.push(imageUrl);
       }
     }
@@ -63,7 +64,8 @@ export async function updateProject(id: string, data: FormData) {
       .set(updatedProject)
       .where(eq(projectsTable.id, Number(id)));
     revalidatePath("/project/[id]", "page");
-  } catch (error) {}
+  } catch (error) {
+  }
 }
 
 export async function deleteProject(id: string) {

@@ -53,14 +53,6 @@ export default function About() {
             <Github color="cyan" />
           </Link>
           <Link
-            href="https://x.com/furkantaglik/"
-            aria-label="Twitter (X) Profile"
-            target="_blank"
-            className="p-2 border border-primary rounded-full transition-all hover:bg-secondary hover:text-foreground cursor-pointer"
-          >
-            <X color="cyan" />
-          </Link>
-          <Link
             href="https://medium.com/@furkantaglik/"
             aria-label="Medium Profile"
             target="_blank"

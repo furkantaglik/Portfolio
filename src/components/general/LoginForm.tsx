@@ -35,10 +35,10 @@ export function LoginForm() {
       <CardContent>
         <Button
           type="button"
-          className="w-full bg-secondary hover:bg-secondary/80"
+          className="w-full bg-secondary hover:bg-secondary/80 font-semibold"
           onClick={handleGoogleLogin}
         >
-          <RiGoogleFill />
+          <RiGoogleFill size={20} color="white" />
         </Button>
       </CardContent>
     </Card>

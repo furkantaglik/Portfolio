@@ -3,7 +3,7 @@ import { db } from "@/db/db";
 import { certificatesTable } from "@/db/schema";
 import { Certificate } from "@/types";
 import { eq } from "drizzle-orm";
-import { revalidatePath, revalidateTag } from "next/cache";
+import { revalidatePath } from "next/cache";
 
 export async function addCertificate(certificate: Certificate) {
   try {

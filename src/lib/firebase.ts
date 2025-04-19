@@ -8,9 +8,16 @@ import { auth, storage } from "../../firebase.config";
 import { signInWithEmailAndPassword } from "firebase/auth";
 
 export async function uploadImage(file: File): Promise<string> {
-  const storageRef = ref(storage, `images/projects/${file.name}`);
-  const snapshot = await uploadBytes(storageRef, file);
-  return await getDownloadURL(snapshot.ref);
+ try {
+   const storageRef = ref(storage, `images/projects/${file.name}`);
+   const snapshot = await uploadBytes(storageRef, file);  
+   return await getDownloadURL(snapshot.ref);
+  
+ } catch (error) {
+  console.log(error);
+  
+ }
+  
 }
 
 export async function deleteImage(imageUrl: string) {
